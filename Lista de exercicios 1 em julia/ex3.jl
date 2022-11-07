@@ -1,0 +1,5 @@
+print("digite o nome do funcionario:\n")
+nome = readline()
+print("digite o salario do funcionario:\n")
+salario = readline()
+print("o funcionario $nome tem o salario de $salario")

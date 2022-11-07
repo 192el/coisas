@@ -1,0 +1,5 @@
+print("digite um valor:\n")
+num1 = parse(Int64, readline())
+print("digite o segundo valor:\n")
+num2 = parse(Int64, readline())
+print("o resultado da soma desses dois numeros é $(num1 + num2)")
