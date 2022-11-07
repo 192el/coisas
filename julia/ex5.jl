@@ -1,5 +1,0 @@
-print("digite a primeira nota do aluno:\n")
-nota1 = parse(Float64, readline())
-print("digite a segunda nota do aluno:\n")
-nota2 = parse(Float64, readline())
-print("a média desse aluno é $((nota1 + nota2) / 2)")
