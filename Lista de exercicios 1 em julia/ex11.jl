@@ -1,0 +1,8 @@
+print("digite o valor de a: \n")
+a = parse(Int64, readline())
+print("digite o valor de b: \n")
+b = parse(Int64, readline())
+print("digite o valor de c: \n")
+c = parse(Int64, readline())
+delta = (b * b) - (4 * a * c)
+print("o valor de delta é $delta")
