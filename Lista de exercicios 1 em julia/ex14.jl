@@ -1,0 +1,5 @@
+print("digite quantos kms foram percorridos pelo carro:\n")
+distancia = parse(Float64, readline())
+print("digite por quantos dias o carro foi alugado:\n")
+dias = parse(Int64, readline())
+print("o preço a se pagar é de $((90 * dias) + 0.20 * distancia)")
