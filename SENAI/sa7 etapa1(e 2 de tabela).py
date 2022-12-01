@@ -1,13 +1,14 @@
 
 #esse monte de comentário é porque eu vou postar no github, e se alguém for se inspirar com meu código espero que entendam a minha lógica
-#
+#se algum colega estiver vendo isso no github por favor tente entender como eu fiz e tente fazer sua propria lógica
+#se tiver alguma duvida sobre a *minha* logica manda mensagem no discord, ou me marca no discord
+#também pode mandar pelo whatsapp mas eu não olho tanto quanto o discord
 
 class sweetflight():
     def __init__(self, n_de_assentos):          #cada instância dessa classe é um avião e os assentos começam do zero
         self.dicionario_das_reservas = {}
         for i in range(n_de_assentos):
             self.dicionario_das_reservas[i] = 'assento livre'                   #criando um dicionario com a chave de 0 a N = 'assento livre'
-
     def reservar(self):                                         #self é necessario para guardar uma variavel dentro de uma instancia desse objeto, "self" é só convenção pode ser outro nome
         try:                                                        #esse try é pro programa tentar fazer o que ta dentro dele, veja o except para mais informações
             quant_assentoslivres = 0
