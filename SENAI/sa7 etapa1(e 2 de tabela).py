@@ -11,7 +11,6 @@ class sweetFlight:
         for i in range(n_de_assentos):
             self.dicionario_das_reservas[i] = 'assento livre'
         # criando um dicionário com a chave de 0 a N = 'assento livre'
-
     def reservar(self):
         # self é necessario para guardar uma variavel numa instância desse objeto, "self" é só convenção
         # pode ser outro nome
@@ -40,7 +39,11 @@ class sweetFlight:
             raise KeyError('esse não é um assento valido')
 
     def mostrar(self):  # função que retorna os assentos e o valor dele ('assento livre' ou 'assento reservado')
-        return self.dicionario_das_reservas
+        if all(value == 'assento livre' for value in self.dicionario_das_reservas.values()):
+            print("Não há reservas para este avião.")
+        else:
+            return self.dicionario_das_reservas
+
 
 
 # daqui para frente é só coisa que nós já fizemos outras vezes, acredito que não seja necessario muitos comentarios
@@ -54,11 +57,12 @@ def criaraviao():
 
 def cond():
     condicao = int(input("digite [1] para registrar o numero de cada avião, [2] para registrar a quantidade de "
-                         "assentos em cada avião, [3] para reservar passagem, [4] para consultar por avião, "
+                         "assentos, [3] para reservar passagem, [4] para consultar por avião, "
                          "[5] para consulta por passageiro, [6] para encerrar:\n"))
     return condicao
 
 
+lista_numero_avioes = []
 condicao = cond()
 while condicao != 6:
     if condicao == 1:
@@ -66,12 +70,12 @@ while condicao != 6:
         for i in range(quant_avioes):
             try:
                 chave_aviao = int(input("digite o numero do avião:\n"))
-                listaAvioes[chave_aviao] = 'aguardando registro da quantidade de assentos'
+                listaAvioes[chave_aviao] = f'avião n°{chave_aviao} aguardando registro da quantidade de assentos'
+                lista_numero_avioes.append(chave_aviao)
             except:
                 raise TypeError("só podemos registrar uma quantidade inteira de aviões")
         condicao = cond()
     elif condicao == 2:
-        lista_numero_avioes = list(listaAvioes)
         while lista_numero_avioes != []:
             try:
                 quant_assentos = int(input(f"digite o numero de assentos do avião n°{lista_numero_avioes[0]}:\n"))
@@ -88,11 +92,11 @@ while condicao != 6:
                 avioesdisponiveis.append(keys[i])
         print(f'os aviões disponiveis são {avioesdisponiveis}')
         qual_aviao = int(input("digite o numero do avião:\n"))
-        try:
+        if qual_aviao in avioesdisponiveis:
             listaAvioes[qual_aviao].reservar()
             condicao = cond()
-        except:
-            KeyError("Este avião não existe")
+        else:
+            print("este avião não existe")
     elif condicao == 4:
         try:
             qual_aviao = int(input("digite o numero do avião:\n"))
@@ -104,5 +108,8 @@ while condicao != 6:
         nome = input("digite o nome do passageiro:\n")
         reservas_do_individuo = [key for key in assento_reservado_pessoa if assento_reservado_pessoa[key] == nome]
         print("os assentos reservados por esse passageiro são:")
-        print(reservas_do_individuo)
+        if len(reservas_do_individuo) == 0:
+            print("não há reservas realizadas para esse passageiro")
+        else:
+            print(reservas_do_individuo)
         condicao = cond()
