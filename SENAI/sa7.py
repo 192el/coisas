@@ -29,7 +29,7 @@ class sweetFlight:
                 # pedindo a 'chave' (numero) do assento para reservar
                 if self.dicionario_das_reservas[assento] == 'assento livre':  # se o assento estiver livre;
                     self.dicionario_das_reservas[assento] = f'assento reservado por {nome}'
-                    assento_reservado_pessoa[f'Av n°{qual_aviao} Assento n° {assento}'] = nome
+                    assento_reservado_pessoa[f'Avião n°{qual_aviao} Assento n°{assento}'] = nome
                     # o valor dele será mudado para 'assento reservado por (nome da pessoa)'
                     # e no outro dicionário o nome e qual assento esta reservado
                     print(self.dicionario_das_reservas[assento])  # retorna 'assento reservado'
@@ -99,6 +99,7 @@ while condicao != 6:
             print("este avião não existe")
     elif condicao == 4:
         try:
+            print(f'os aviões disponiveis são {avioesdisponiveis}')
             qual_aviao = int(input("digite o numero do avião:\n"))
             print(listaAvioes[qual_aviao].mostrar())
             condicao = cond()
